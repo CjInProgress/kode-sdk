@@ -36,7 +36,8 @@ typedef enum {
     KDRV_ES_MCLK_MULT,    /**< Fixed.                                        */
     /* Settings, applied at the next open. */
     KDRV_ES_VOL,          /**< 0 to 100. 100 is the speaker's cap,
-                           *   KDRV_ES8311_OUT_DB_X10_MAX: full scale.     */
+                           *   KDRV_ES8311_OUT_DB_X10_MAX, one register
+                           *   step under full scale.                      */
     KDRV_ES_MIC_DB,       /**< 0 to 42, rounded down to a 6 dB step.         */
     KDRV_ES_OUT_MUTE,     /**< Mute the DAC.                                 */
     KDRV_ES_IN_MUTE,      /**< Mute the ADC.                                 */

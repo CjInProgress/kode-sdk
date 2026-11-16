@@ -74,7 +74,7 @@ static bool audio_field_row(uint16_t field, console_field_t *out)
         [KDRV_ES_REG16] = "ADC scale, 0 to 7.",
         [KDRV_ES_REG17] = "ADC volume.",
         [KDRV_ES_REG31] = "DAC mute.",
-        [KDRV_ES_REG32] = "DAC volume. Read only: volume 100 leaves it at 0xBF, full scale.",
+        [KDRV_ES_REG32] = "DAC volume. Read only: volume 100 leaves it at 0xBE, the speaker's cap, one step under full scale.",
         [KDRV_ES_REG34] = "DAC dynamic range control. Read only, like drc_en.",
         [KDRV_ES_REG37] = "DAC volume ramp rate.",
         [KDRV_ES_REG44] = "The DAC-to-ADC loopback, raw.",

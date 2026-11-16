@@ -101,8 +101,8 @@ typedef struct {
  * The component's own law: register / 2 - 95.5 decibels, over the full byte.
  * So 0xBF is exactly zero, and anything above it is digital gain the DAC does
  * not have the headroom for. Volume 100 is the speaker's cap
- * (KDRV_ES8311_OUT_DB_X10_MAX, full scale), which the driver's volume curve
- * applies.
+ * (KDRV_ES8311_OUT_DB_X10_MAX, one register step under full scale), which
+ * the driver's volume curve applies.
  */
 #define VOL_DB_X10_MIN   (-955)
 #define VOL_DB_X10_MAX     320

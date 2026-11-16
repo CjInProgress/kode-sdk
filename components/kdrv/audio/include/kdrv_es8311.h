@@ -75,18 +75,19 @@ extern "C" {
 /**
  * @brief The loudest the DAC is ever set, in tenth-decibels of full scale.
  *
- * Volume 100 is this and nothing reaches past it. Zero: the DAC's full
- * scale, register 0x32 at 0xBF. It is the speaker's limit rather than the
- * codec's, from the validation bench's model. Full scale is 1.9 Vrms at the
- * codec; the NS4150B multiplies that by its internal feedback resistor
- * (measured 220 to 250 kOhm, datasheet 240) over R2/R10; and the YN1811 may
- * dissipate 0.5 W, its maker's 96-hour test, at the 5.85 Ohm valley of its
- * impedance, which is 1.71 Vrms. Every board that ships, V1 (the DVT) and
- * V2, fits 270 kOhm at R2/R10, which meets that at full scale (1.69 Vrms,
- * 0.49 W measured). A board with smaller resistors needs a value below zero
- * here: V0 fitted 100 kOhm.
+ * Volume 100 is this and nothing reaches past it: -0.5 dB, register 0x32 at
+ * 0xBE, one register step under the DAC's full scale. The speaker sets it,
+ * by the validation bench's model. Full scale is 1.9 Vrms at the codec; the
+ * NS4150B multiplies that by its internal feedback resistor (measured 220 to
+ * 250 kOhm, datasheet 240) over R2/R10, which is 270 kOhm on every board
+ * that ships, V1 (the DVT) and V2; and the YN1811 may dissipate 0.5 W, its
+ * maker's 96-hour test, at the 5.85 Ohm valley of its impedance, which is
+ * 1.71 Vrms. Full scale gives 1.69 Vrms (0.49 W) at the datasheet's resistor
+ * and 1.76 Vrms (0.53 W) at the highest one measured; one step under it
+ * gives 1.66 Vrms (0.47 W) there. A board with smaller resistors at R2/R10
+ * needs a lower value here.
  */
-#define KDRV_ES8311_OUT_DB_X10_MAX  0
+#define KDRV_ES8311_OUT_DB_X10_MAX  (-5)
 
 /* ---- Bring-up ------------------------------------------------------------ */
 
